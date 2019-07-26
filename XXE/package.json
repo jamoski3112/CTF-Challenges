@@ -1,0 +1,15 @@
+{
+  "name": "xxe_challenge",
+  "version": "1.0.0",
+  "description": "Sample XXE",
+  "main": "xxe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rahul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "libxmljs": "^0.19.5"
+  }
+}
