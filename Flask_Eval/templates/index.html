@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+  <title>E-CORP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+   body { background: #161314 !important; }
+.navbar-default{background-color:#161314;border-color:#161314} /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+.captcha {
+ background-image: url("https://www.karotpower.com/captcha/backgrounds/bg3.jpg");;
+}
+
+</style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+        <strong>{{ message }} </strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+          {% endfor %}
+    </div>
+    {% endif %}
+ {% endwith %}
+  <nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Welcome to E-Corp</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right navbar-default">
+      <li><a  data-toggle="modal" data-target="#exampleModal"><strong>Contact Us</strong></a>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Get in Touch With us</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+
+
+<form method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Message</label>
+    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="message" name="message"></textarea>
+  </div>
+  <div class="group">
+    <label class="form-check-label" for="exampleCheck1">Verify that You are a human by finding the numbers whose result is the captcha</label>
+    <br>
+    <label  class="captcha" for="exampleCheck1">{{ random_number }}</label>
+    <div class="md-form form-group w-25">
+        
+        <input type="text" class="form-control" name="captcha" placeholder="Enter Captcha">
+        <input type="hidden" class="form-control" name="cap" value="{{ random_number }}">
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#myModal" class="trigger-btn" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">        
+          <h4 class="modal-title">Login</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">        
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" required="required" name="username">
+          </div>
+          <div class="form-group">
+            <div class="clearfix">
+              <label>Password</label>
+            </div>
+            
+            <input type="password" class="form-control" required="required" name="password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-primary pull-right" value="Login" onClick="display(this.form)">
+        </div>
+      </form>
+      <script type="text/javascript">
+function display(form){
+if (form.username.value=="admin") { 
+    if (form.password.value=="$up3erS3cretP@$$w0Rd") {              
+                    location="/ecorp-internal" 
+                      } else {
+                          alert("Invalid Password")
+                          }
+                } else {  alert("Invalid Username")
+                    }
+            }
+      </script>
+    </ul>
+</div></nav>
+
+    <img src="https://i.redditmedia.com/t8Ms3hgEo0-R40iFCjn3ViPdZygyLssNGxqt7iDybx4.jpg?s=8b0a548c4fd53dace237ea0fd9c70090" class="img-responsive  center-block" alt="indeximage" width="1500" height="480"> 
+</br>
+<div class="row">
+  <div class="col-sm-12 well"><img src="https://vignette.wikia.nocookie.net/mrrobot/images/8/87/ECorp.png/revision/latest/scale-to-width-down/250?cb=20150602024409" class="img-circle center-block" alt="Cinque Terre" width="200" height="200">
+<h2>What is E Corp</h2>
+      <p>E Corp is the leading global provider of corporate strategy, philanthropy, sustainability, and growth.  It’s all part of our unflagging commitment to creating momentum, solving problems, and building a new tomorrow, today.  From finance and banking to communications and entertainment to technology and security and beyond, no one does more to advance our society, and no one cares more about the people living in it.  Decades of business evolution, research, and collaboration have served to keep E Corp the number one company in the world.  We are devoted to seamlessly integrating into every aspects of our costumer’s lives.  We believe in creating opportunities and bringing progress to communities around the globe. We operate thousands of businesses and employ millions of people throughout the world.  And through it all we remain guided by our core principles of service, innovation, and a pioneering spirit. </p>
+            <p>Never has the relationship between E Corp and you been so important as it is in the wake of the Five/Nine attacks.  As the world struggles to rebuild, recover, and regrow, E Corp remains right where it always has been there — right there with you, leading the way.  That’s why we like to say E Corp is "Still On Your Side&trade;."</p>
+</div>
+ 
+</div>
+</div>
+</div>
+</body>
+</html>

