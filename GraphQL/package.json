@@ -1,0 +1,35 @@
+{
+  "name": "gql",
+  "version": "1.0.0",
+  "description": "gql data leak challenge",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulr311295/gqlchallenge.git"
+  },
+  "keywords": [
+    "hack",
+    "me"
+  ],
+  "author": "rahul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulr311295/gqlchallenge/issues"
+  },
+  "homepage": "https://github.com/rahulr311295/gqlchallenge#readme",
+  "dependencies": {
+    "@hapi/joi": "^15.1.0",
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.7",
+    "nodemon": "^1.19.1",
+    "serve-index": "^1.9.1"
+  }
+}
