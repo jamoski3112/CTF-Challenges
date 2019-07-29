@@ -12,7 +12,7 @@ const{
     GraphQLNonNull
 } = require('graphql');
 const app = express()
-const port = 3000
+const port = 13337
 dotenv.config();
 //DB connection
 mongoose.connect(
@@ -25,6 +25,10 @@ const authRoute = require('./routes/auth');
 
 //Middleware
 app.use(express.json());
+app.get('/',(req,res)=>{
+	
+	res.status(200).json('HackBook API')
+});
 app.use('/uploads', express.static('uploads'), serveIndex('uploads', {'icons': true}));
 
 //Route Middleware
