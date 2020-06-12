@@ -32,7 +32,10 @@ app.get('/profile',checkAuth,function(req,res){
 app.get('/logout',function(req,res){
   res.redirect('/login');
 });
-app.post('/', function(req, res) {
+app.get('/profile/edit',function(req,res){
+  res.render('edit');
+});
+app.post('/submit', function(req, res) {
     var name = req.body.name;
     try{
     var xmlDoc = libxmljs.parseXmlString(name,parserOptions);
