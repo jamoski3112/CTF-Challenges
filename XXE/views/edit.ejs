@@ -1,6 +1,6 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
@@ -47,13 +47,16 @@
                         <td>Gender</td>
                         <td>male</td>
                       </tr>
-
+                        <tr>
                         <td>Email</td>
-                        <td><form action="/submit" method="post">
-                         <input id ="user"></input><input type="submit" value="submit"></input>
+                        <td>
+                          <form class="form-horizontal" action="" id="form" name="form" method="post">
+                         <input type="text" class="form-control" name="name" placeholder="Name">
+                         <button id="submit_btn" class="btn btn-info"><i class="icon-hand-right"></i> Submit</button>
                          </form>
                        </td>
                       </tr>
+                      <tr>
                         <td>Phone Number</td>
                         <td>8606826345<br>
                         </td>
@@ -65,13 +68,59 @@
                 </div>
               </div>
             </div>
-            <script>const queryString = window.location.search;
-
-                     const urlParams = new URLSearchParams(queryString);
+            <script>
+              const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
                      const user = urlParams.get('user')
-document.getElementById("user").innerHTML = user;
+document.getElementById("user").innerHTML = user
+
 </script>
+
+<script>
+  function OBJtoXML(obj) {
+    var xml = '';
+    for (var prop in obj) {
+      xml += obj[prop] instanceof Array ? '' : "<" + prop + ">";
+      if (obj[prop] instanceof Array) {
+        for (var array in obj[prop]) {
+          xml += "<" + prop + ">";
+          xml += OBJtoXML(new Object(obj[prop][array]));
+          xml += "</" + prop + ">";
+        }
+      } else if (typeof obj[prop] == "object") {
+        xml += OBJtoXML(new Object(obj[prop]));
+      } else {
+        xml += obj[prop];
+      }
+      xml += obj[prop] instanceof Array ? '' : "</" + prop + ">";
+    }
+    var xml = xml.replace(/<\/?[0-9]{1,}>/g, '');
+    return xml
+  }
+  $('#form').on('submit', function(event){
+   var obj = $('form').serializeJSON();
+    var formxml = OBJtoXML(obj);
+    console.log(formxml)
+   $.ajax({
+       type: 'POST',
+       url: '/submit',
+       dataType: 'xml',
+       data: formxml,
+       contentType : 'text/xml',
+       success: function(data) {
+           alert("registered successfully")
+       },
+       error: function(data) {
+         var json = JSON.stringify(data.responseText);
+    alert(json);
+ }
+   });
+
+  return false;
+});
+</script>
+
                  <div class="panel-footer">
                         <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
@@ -83,3 +132,7 @@ document.getElementById("user").innerHTML = user;
         </div>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../js/xmltojson.js"></script>
+    <script type="text/javascript" src="../js/serialise.js"></script>

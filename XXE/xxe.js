@@ -37,6 +37,7 @@ app.get('/profile/edit',function(req,res){
 });
 app.post('/submit', function(req, res) {
     var name = req.body.name;
+    console.log(name)
     try{
     var xmlDoc = libxmljs.parseXmlString(name,parserOptions);
     var gchild = xmlDoc.get('//name');
