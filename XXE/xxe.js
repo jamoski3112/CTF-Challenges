@@ -22,7 +22,7 @@ var parserOptions= {
     nocdata:true
 }
 app.get('/',function(req,res){
-    res.send("Please Enter a name with POST")
+    res.render('index')
 })
 app.get('/signup',function(req,res){
   res.render('register');
